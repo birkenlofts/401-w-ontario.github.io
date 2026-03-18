@@ -6,9 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Birken Lofts | Historic Loft Living in River North</title>
     <meta name="description" content="57 residences within the landmark 1905 S. Birkenstein & Sons Building in River North, Chicago. Construction begins October 2026." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Birken Lofts | Historic Loft Living in River North" />
+    <meta property="og:description" content="57 residences within the landmark 1905 S. Birkenstein & Sons Building in River North, Chicago." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://birkenlofts.com" />
+    <meta property="og:image" content="https://birkenlofts.com/images/elevations/401-W-Ontario-No-Signs-1024w.webp" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://birkenlofts.com" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ApartmentComplex",
+      "name": "Birken Lofts",
+      "description": "57 residences within the landmark 1905 S. Birkenstein & Sons Building in River North, Chicago. A thoughtful adaptive reuse preserving exposed heavy timber beams, original masonry walls, and distinctive arched window openings.",
+      "url": "https://birkenlofts.com",
+      "image": "https://birkenlofts.com/images/elevations/401-W-Ontario-No-Signs-1024w.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "401 W. Ontario Street",
+        "addressLocality": "Chicago",
+        "addressRegion": "IL",
+        "postalCode": "60654",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.8935,
+        "longitude": -87.6388
+      },
+      "numberOfAvailableAccommodation": 57,
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Exposed Heavy Timber Beams" },
+        { "@type": "LocationFeatureSpecification", "name": "Historic Brick Walls" },
+        { "@type": "LocationFeatureSpecification", "name": "Arched Windows" },
+        { "@type": "LocationFeatureSpecification", "name": "In-Unit Laundry" },
+        { "@type": "LocationFeatureSpecification", "name": "Modern Kitchens" },
+        { "@type": "LocationFeatureSpecification", "name": "Elevator Access" }
+      ],
+      "developer": {
+        "@type": "Organization",
+        "name": "Monroe Residential Partners",
+        "url": "https://monroeresidential.com"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
