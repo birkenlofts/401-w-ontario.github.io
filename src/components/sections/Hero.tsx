@@ -9,7 +9,7 @@ export default function Hero() {
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url(/reference/Elevations/401-W-Ontario-No-Signs.jpg)' }}
+        style={{ backgroundImage: 'url(/images/elevations/401-W-Ontario-No-Signs.jpg)' }}
       />
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal-700/80 via-charcoal-700/60 to-charcoal-700/85" />

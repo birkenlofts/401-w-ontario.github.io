@@ -29,7 +29,7 @@ export default function About() {
 
         <ScrollReveal className="flex-1">
           <img
-            src="/reference/Elevations/401-W-Ontario-No-Signs-Black-White.jpg"
+            src="/images/elevations/401-W-Ontario-No-Signs-Black-White.jpg"
             alt="S. Birkenstein & Sons Building, 1905"
             className="w-full h-auto rounded object-cover"
             loading="lazy"
