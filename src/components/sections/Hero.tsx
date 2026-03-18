@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20"
     >
       {/* Background image */}
       <picture className="absolute inset-0">
