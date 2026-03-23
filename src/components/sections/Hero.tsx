@@ -54,7 +54,7 @@ export default function Hero() {
           transition={{ delay: 0.8 }}
           className="text-sm md:text-base text-charcoal-200 mb-10"
         >
-          57 residences within the landmark S. Birkenstein &amp; Sons Building
+          57 residences within the historic S. Birkenstein &amp; Sons Building
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

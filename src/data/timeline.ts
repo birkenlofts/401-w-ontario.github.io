@@ -21,7 +21,7 @@ export const milestones: Milestone[] = [
   {
     date: 'Oct 2026',
     title: 'Construction Begins',
-    description: 'Adaptive reuse construction commences on the landmark building.',
+    description: 'Adaptive reuse construction commences on the historic building.',
     status: 'upcoming',
   },
   {

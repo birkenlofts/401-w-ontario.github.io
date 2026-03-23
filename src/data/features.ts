@@ -37,8 +37,8 @@ export const features: Feature[] = [
   },
   {
     icon: 'Award',
-    title: 'Historic Tax Credits',
-    description: "National Register-eligible building preserving Chicago's architectural legacy.",
+    title: 'Historic Restoration',
+    description: "A historically significant building restored to preserve Chicago's architectural legacy.",
   },
   {
     icon: 'ArrowUpFromLine',
