@@ -18,12 +18,19 @@ export default function About() {
             facade and arched windows have witnessed the neighborhood&rsquo;s transformation
             from manufacturing hub to one of the city&rsquo;s most vibrant districts.
           </p>
-          <p className="text-base leading-relaxed text-charcoal-500">
+          <p className="text-base leading-relaxed text-charcoal-500 mb-5">
             Birken Lofts honors this legacy through a thoughtful adaptive
             reuse&mdash;preserving the building&rsquo;s defining character elements including
             exposed heavy timber beams, original masonry walls, and distinctive arched window
             openings&mdash;while introducing 57 modern residences designed for contemporary
             living.
+          </p>
+          <p className="text-base leading-relaxed text-charcoal-500">
+            Behind the historic facade, everything is new: brand-new windows, modern HVAC,
+            wood plank flooring, updated kitchens, in-unit laundry, a new elevator, and
+            gigabit internet&mdash;plus amenities like a fitness center, co-working space, and
+            bike storage. It&rsquo;s all-new living inside a building with 120&nbsp;years of
+            character.
           </p>
         </ScrollReveal>
 

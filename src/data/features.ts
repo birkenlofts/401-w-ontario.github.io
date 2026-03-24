@@ -17,8 +17,24 @@ export const features: Feature[] = [
   },
   {
     icon: 'Sun',
-    title: 'Arched Windows',
-    description: 'Distinctive arched window openings flood units with natural light.',
+    title: 'New Arched Windows',
+    description:
+      'Brand-new windows set within the original arched openings flood units with natural light.',
+  },
+  {
+    icon: 'Thermometer',
+    title: 'Modern HVAC',
+    description: 'All-new heating and cooling systems for year-round comfort in every unit.',
+  },
+  {
+    icon: 'Wifi',
+    title: '1 Gbps Internet',
+    description: 'Gigabit-speed internet wired to every residence for seamless connectivity.',
+  },
+  {
+    icon: 'Layers',
+    title: 'Wood Plank Flooring',
+    description: 'New wood plank floors throughout, complementing the original timber above.',
   },
   {
     icon: 'WashingMachine',
@@ -28,21 +44,26 @@ export const features: Feature[] = [
   {
     icon: 'ChefHat',
     title: 'Modern Kitchens',
-    description: "Contemporary finishes paired with the building's industrial heritage.",
+    description: 'Contemporary finishes and new appliances paired with industrial heritage.',
+  },
+  {
+    icon: 'Dumbbell',
+    title: 'Fitness & Co-Working',
+    description: 'On-site gym and co-working space designed for residents who live and work here.',
+  },
+  {
+    icon: 'Bike',
+    title: 'Bike Storage',
+    description: 'Secure indoor bike storage for easy access to River North and beyond.',
+  },
+  {
+    icon: 'ArrowUpFromLine',
+    title: 'New Elevator',
+    description: 'Brand-new elevator serving all floors for convenient, modern living.',
   },
   {
     icon: 'MapPin',
     title: 'River North Location',
     description: 'Steps from galleries, dining, and the best of downtown Chicago.',
-  },
-  {
-    icon: 'Award',
-    title: 'Historic Restoration',
-    description: "A historically significant building restored to preserve Chicago's architectural legacy.",
-  },
-  {
-    icon: 'ArrowUpFromLine',
-    title: 'Elevator Access',
-    description: 'Modern elevator serving all floors for convenient living.',
   },
 ];

@@ -1,6 +1,7 @@
 import {
   TreePine, Landmark, Sun, WashingMachine,
-  ChefHat, MapPin, Award, ArrowUpFromLine,
+  ChefHat, MapPin, ArrowUpFromLine,
+  Thermometer, Wifi, Layers, Dumbbell, Bike,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { features } from '../../data/features';
@@ -9,7 +10,8 @@ import ScrollReveal from '../ui/ScrollReveal';
 
 const iconMap: Record<string, LucideIcon> = {
   TreePine, Landmark, Sun, WashingMachine,
-  ChefHat, MapPin, Award, ArrowUpFromLine,
+  ChefHat, MapPin, ArrowUpFromLine,
+  Thermometer, Wifi, Layers, Dumbbell, Bike,
 };
 
 export default function Features() {
