@@ -52,11 +52,16 @@ export default function Neighborhood() {
       <div className="section-shell">
         <div className="section-heading-row">
           <h2>River North</h2>
-          <p className="nbhd-intro">
-            Galleries, the Riverwalk, the Merchandise Mart and half the city&rsquo;s best restaurants
-            &mdash; all within a ten-minute walk. The Brown Line at Chicago Ave. puts the Loop six
-            minutes away.
-          </p>
+          <div>
+            <p className="nbhd-intro">
+              Galleries, the Riverwalk, the Merchandise Mart and half the city&rsquo;s best
+              restaurants &mdash; all within a ten-minute walk. The Brown Line at Chicago Ave. puts
+              the Loop six minutes away.
+            </p>
+            <a className="nbhd-guide-link" href="/things-to-do/">
+              Explore all 270 places &rarr;
+            </a>
+          </div>
         </div>
         <div ref={mapRef}>{nearView ? <NeighborhoodMap /> : <MapPlaceholder />}</div>
         <div className="nbhd-cards">
