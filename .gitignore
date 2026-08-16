@@ -35,3 +35,6 @@ next-env.d.ts
 
 # local secrets (Ghost API keys)
 .env.local
+
+# Raw listing photos + rights worksheet — only the processed webps are committed
+/docs/design/photos/
