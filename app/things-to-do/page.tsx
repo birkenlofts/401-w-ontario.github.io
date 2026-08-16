@@ -74,7 +74,6 @@ const jsonLd = {
 export default function ThingsToDoPage() {
   const sections = getListingsByCategory();
   const photoIds = getPhotoIds();
-  let rendered = 0;
 
   return (
     <main>
@@ -127,18 +126,14 @@ export default function ThingsToDoPage() {
               <p className="guide-section-intro">{category.intro}</p>
             </div>
             <div className="guide-grid">
-              {listings.map((listing) => {
-                const eager = rendered++ < 6;
-                return (
-                  <GuideCard
-                    key={listing.id}
-                    listing={listing}
-                    categorySlug={category.slug}
-                    hasPhoto={photoIds.has(listing.id)}
-                    eager={eager}
-                  />
-                );
-              })}
+              {listings.map((listing) => (
+                <GuideCard
+                  key={listing.id}
+                  listing={listing}
+                  categorySlug={category.slug}
+                  hasPhoto={photoIds.has(listing.id)}
+                />
+              ))}
             </div>
           </section>
         ))}

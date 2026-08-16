@@ -5,10 +5,9 @@ interface GuideCardProps {
   listing: Listing;
   categorySlug: string;
   hasPhoto: boolean;
-  eager?: boolean;
 }
 
-export default function GuideCard({ listing, categorySlug, hasPhoto, eager }: GuideCardProps) {
+export default function GuideCard({ listing, categorySlug, hasPhoto }: GuideCardProps) {
   const seasons = normalizeSeasons(listing.seasons);
   const tier = priceTier(listing.price_range);
   const src = `/images/guide/${listing.id}`;
@@ -29,8 +28,13 @@ export default function GuideCard({ listing, categorySlug, hasPhoto, eager }: Gu
             alt={listing.name}
             width={960}
             height={640}
-            loading={eager ? 'eager' : 'lazy'}
-            fetchPriority={eager ? 'high' : 'auto'}
+            // Every card image is below the fold at every viewport — the header,
+            // stats band and filter bar occupy the first ~1150px, so the first
+            // card image starts at 1158px on desktop and 1423px on mobile.
+            // Eager-loading any of them only delays the real LCP element (the
+            // lede paragraph): 6 eager images cost 7 Lighthouse points and 1.2s
+            // of LCP on mobile.
+            loading="lazy"
           />
         ) : (
           <div className="guide-card-fallback" aria-hidden="true">
