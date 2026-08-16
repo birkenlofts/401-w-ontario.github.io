@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "eslint .",
-    "sync-posts": "node scripts/sync-posts.mjs"
+    "sync-posts": "node scripts/sync-posts.mjs",
+    "build-guide-photos": "node scripts/build-guide-photos.mjs",
+    "test": "node --test --disable-warning=MODULE_TYPELESS_PACKAGE_JSON lib/*.test.mts",
+    "verify-guide": "node scripts/verify-guide-page.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
@@ -24,6 +27,7 @@
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.4",
     "eslint-config-next": "^15.5.0",
+    "sharp": "^0.35.3",
     "typescript": "~5.9.3"
   }
 }

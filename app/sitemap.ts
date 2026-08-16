@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${BASE}/`, lastModified: '2026-07-20', changeFrequency: 'weekly', priority: 1.0 },
     { url: `${BASE}/history/`, lastModified: '2026-07-20', changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/things-to-do-river-north/`, lastModified: '2026-08-16', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/blog/`, lastModified: newestPost ?? '2026-07-16', changeFrequency: 'weekly', priority: 0.7 },
     ...posts.map((p) => ({
       url: `${BASE}/blog/${p.slug}/`,
