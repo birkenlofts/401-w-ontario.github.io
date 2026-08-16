@@ -2095,38 +2095,6 @@
     display: none;
   }
 
-  .guide-header h1 {
-    font-size: 40px;
-  }
-
-  .guide-lede {
-    font-size: 15px;
-  }
-
-  .guide-section-intro {
-    font-size: 14px;
-  }
-
-  .guide-filters-inner {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .guide-filter-field,
-  .guide-filter-field--search {
-    flex: 1 1 100%;
-  }
-
-  .guide-filter-status {
-    margin-left: 0;
-    width: 100%;
-    justify-content: space-between;
-    padding-bottom: 0;
-  }
-
-  .guide-section {
-    scroll-margin-top: 60px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -2448,9 +2416,10 @@
   color: var(--color-accent);
 }
 
-/* Anchors must clear the nav (72px) and the sticky filter bar. */
+/* Anchors must clear the sticky nav (72px) plus the sticky filter bar
+   (~102px measured). 150px left the h2 tucked behind the bar. */
 .guide-section {
-  scroll-margin-top: 150px;
+  scroll-margin-top: 186px;
 }
 
 /*
@@ -2478,5 +2447,57 @@
   .guide-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 20px;
+  }
+}
+
+/*
+ * Guide mobile overrides. These MUST live at the end of the things-to-do
+ * block, not in the file's earlier @media (max-width: 768px) block: media
+ * queries add no specificity, so rules placed before the desktop ones lose
+ * on source order and silently do nothing.
+ */
+@media (max-width: 768px) {
+  .guide-header h1 {
+    font-size: 40px;
+  }
+
+  .guide-lede {
+    font-size: 15px;
+  }
+
+  .guide-section-intro {
+    font-size: 14px;
+  }
+
+  /* The mobile header is 60px, not the desktop 72px. */
+  .guide-filters {
+    top: 60px;
+  }
+
+  .guide-filters-inner {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Category and Season share a row; Search takes its own. Three stacked
+     full-width fields plus the status row consumed ~37% of a phone screen. */
+  .guide-filter-field {
+    flex: 1 1 calc(50% - 5px);
+  }
+
+  .guide-filter-field--search {
+    flex: 1 1 100%;
+  }
+
+  .guide-filter-status {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 0;
+  }
+
+  /* Clear the 60px header plus the taller mobile filter bar (~209px). */
+  .guide-section {
+    scroll-margin-top: 280px;
   }
 }
