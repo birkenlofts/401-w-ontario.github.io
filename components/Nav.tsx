@@ -14,14 +14,14 @@ export default function Nav() {
   const active = useScrollSpy(onHome);
   const onHistory = pathname.startsWith('/history');
   const onBlog = pathname.startsWith('/blog');
-  const onThingsToDo = pathname.startsWith('/things-to-do');
+  const onThingsToDo = pathname.startsWith('/things-to-do-river-north');
 
   const links = [
     { href: '/#top', label: 'Home', current: onHome && active === '' },
     { href: '/#plans', label: 'Floor Plans', current: onHome && active === 'plans' },
     { href: '/#amenities', label: 'Amenities', current: onHome && active === 'amenities' },
     { href: '/#neighborhood', label: 'Neighborhood', current: onHome && active === 'neighborhood' },
-    { href: '/things-to-do/', label: 'Things to Do', current: onThingsToDo },
+    { href: '/things-to-do-river-north/', label: 'Things to Do', current: onThingsToDo },
     { href: '/history/', label: 'History', current: onHistory },
     { href: '/blog/', label: 'Journal', current: onBlog },
   ];

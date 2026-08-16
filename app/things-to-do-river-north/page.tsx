@@ -4,7 +4,7 @@ import GuideCard from '@/components/guide/GuideCard';
 import GuideFilters from '@/components/guide/GuideFilters';
 import { CATEGORIES, getListingsByCategory, getPhotoIds, TOTAL_LISTINGS } from '@/lib/guide';
 
-const URL = 'https://birkenlofts.com/things-to-do/';
+const URL = 'https://birkenlofts.com/things-to-do-river-north/';
 
 export const metadata: Metadata = {
   title: 'Things to Do Near Birken Lofts | River North, Chicago',

@@ -58,7 +58,7 @@ export default function Neighborhood() {
               restaurants &mdash; all within a ten-minute walk. The Brown Line at Chicago Ave. puts
               the Loop six minutes away.
             </p>
-            <a className="nbhd-guide-link" href="/things-to-do/">
+            <a className="nbhd-guide-link" href="/things-to-do-river-north/">
               Explore all 270 places &rarr;
             </a>
           </div>
