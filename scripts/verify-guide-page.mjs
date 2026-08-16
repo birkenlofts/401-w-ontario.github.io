@@ -24,7 +24,20 @@
  * Exits non-zero if any check fails.
  */
 
-import { chromium } from 'playwright';
+// playwright is deliberately NOT a dependency of this project: CI runs
+// `npm ci && npm run build`, and pulling a browser into that would cost
+// minutes and buy nothing. Install it on demand instead.
+let chromium;
+try {
+  ({ chromium } = await import('playwright'));
+} catch {
+  console.error(
+    'playwright is not installed.\n\n' +
+      '  npm i --no-save playwright && npx playwright install chromium\n\n' +
+      'It is intentionally not a project dependency — CI would pay for it on every build.',
+  );
+  process.exit(2);
+}
 
 const URL = process.env.URL || 'http://localhost:4173/things-to-do-river-north/';
 const results = [];
