@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideCard from '@/components/guide/GuideCard';
+import GuideFilters from '@/components/guide/GuideFilters';
 import { CATEGORIES, getListingsByCategory, getPhotoIds, TOTAL_LISTINGS } from '@/lib/guide';
 
 const URL = 'https://birkenlofts.com/things-to-do/';
@@ -113,6 +114,11 @@ export default function ThingsToDoPage() {
         </div>
       </section>
 
+      <GuideFilters
+        categories={CATEGORIES.map((c) => ({ name: c.name, slug: c.slug }))}
+        total={TOTAL_LISTINGS}
+      />
+
       <div className="container guide-body">
         {sections.map(({ category, listings }) => (
           <section className="guide-section" id={category.slug} key={category.slug}>
@@ -136,6 +142,9 @@ export default function ThingsToDoPage() {
             </div>
           </section>
         ))}
+        <p className="guide-empty">
+          Nothing matches those filters. Try widening the season or clearing the search.
+        </p>
       </div>
 
       <section className="guide-cta">

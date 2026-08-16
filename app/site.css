@@ -2106,6 +2106,27 @@
   .guide-section-intro {
     font-size: 14px;
   }
+
+  .guide-filters-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .guide-filter-field,
+  .guide-filter-field--search {
+    flex: 1 1 100%;
+  }
+
+  .guide-filter-status {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 0;
+  }
+
+  .guide-section {
+    scroll-margin-top: 60px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2326,6 +2347,110 @@
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 30px;
+}
+
+.guide-filters {
+  position: sticky;
+  z-index: 900;
+  top: 72px;
+  border-block: 1px solid var(--color-divider);
+  background: rgba(18, 17, 16, 0.94);
+  backdrop-filter: blur(8px);
+}
+
+.guide-filters-inner {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding-block: 16px;
+}
+
+.guide-filter-field {
+  display: flex;
+  min-width: 0;
+  flex: 0 1 220px;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.guide-filter-field--search {
+  flex: 1 1 240px;
+}
+
+.guide-filter-field label {
+  color: var(--color-faint);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.guide-filters .input {
+  min-height: 44px;
+  padding-block: 10px;
+  font-size: 14px;
+}
+
+.guide-filters select.input {
+  appearance: none;
+  padding-right: 34px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-muted) 50%),
+    linear-gradient(135deg, var(--color-muted) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 20px, calc(100% - 13px) 20px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.guide-filter-status {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 14px;
+  padding-bottom: 12px;
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.guide-filter-clear {
+  border: 1px solid var(--color-divider-strong);
+  background: transparent;
+  padding: 7px 14px;
+  color: var(--color-text);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.guide-filter-clear:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Anchors must clear the nav (72px) and the sticky filter bar. */
+.guide-section {
+  scroll-margin-top: 150px;
+}
+
+/*
+ * Hidden by default. GuideFilters appends a `.guide-empty{display:block}`
+ * rule to its injected stylesheet when the visible count hits zero.
+ * Do NOT try to express this in static CSS via the sections' visibility —
+ * they are hidden by an injected stylesheet, not an inline style attribute,
+ * so there is nothing for a static selector to key on.
+ */
+.guide-empty {
+  display: none;
+  padding: 64px 0;
+  color: var(--color-muted);
+  font-size: 16px;
+  text-align: center;
 }
 
 @media (max-width: 900px) {
