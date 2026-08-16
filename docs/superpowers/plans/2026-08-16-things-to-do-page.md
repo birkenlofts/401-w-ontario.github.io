@@ -384,14 +384,16 @@ export function getPhotoIds(): Set<string> {
 - [ ] **Step 6: Run the tests to verify they pass**
 
 Run: `npm test`
-Expected: PASS — `# pass 13`, `# fail 0`.
+Expected: PASS — `# pass 12`, `# fail 0` (the file defines 12 `test(...)` blocks).
 
 If `normalizeSeasons(['September Through May Season'])` fails, check the month regex: `may` must be word-bounded so `Mayoral` doesn't match, and September→Fall must sort before May→Spring is dropped — the expected result is `['Spring', 'Fall']` in `SEASON_ORDER` order.
 
 - [ ] **Step 7: Verify the loader against the real data**
 
+Node options must precede `-e`; a flag placed after the script string is passed to the script, not to Node.
+
 ```bash
-node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON -e "
+node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --input-type=module -e "
 const g = await import('./lib/guide.ts');
 const all = g.getListings();
 console.log('listings', all.length);
@@ -399,7 +401,7 @@ console.log('by category', g.getListingsByCategory().map(x => x.category.slug + 
 const tiers = all.map(l => g.priceTier(l.price_range)).filter(Boolean);
 console.log('price badges', tiers.length + '/' + all.length);
 console.log('season vocab', [...new Set(all.flatMap(l => g.normalizeSeasons(l.seasons)))].join(','));
-" --input-type=module
+"
 ```
 
 Expected: 270 listings; the ten slugs with counts 35/37/34/30/35/31/30/11/14/13; roughly 175–190 price badges; season vocabulary exactly `Year-Round,Spring,Summer,Fall,Winter` in some order and nothing else.
@@ -591,7 +593,7 @@ network access, or sharp's platform binaries."
 
 **Interfaces:**
 - Consumes: `Listing`, `normalizeSeasons`, `priceTier` from `@/lib/guide`; `StaticImg` from `@/components/StaticImg`.
-- Produces: `export default function GuideCard(props: { listing: Listing; hasPhoto: boolean; eager?: boolean })`. Task 4 renders it. The `data-cat` / `data-season` / `data-search` attributes it emits are the exact contract Task 5's filter selectors depend on.
+- Produces: `export default function GuideCard(props: { listing: Listing; categorySlug: string; hasPhoto: boolean; eager?: boolean })`. All four props are required by Task 4's call site except `eager`, which is optional. The `data-cat` / `data-season` / `data-search` attributes it emits are the exact contract Task 5's filter selectors depend on.
 
 - [ ] **Step 1: Write `components/guide/GuideCard.tsx`**
 
