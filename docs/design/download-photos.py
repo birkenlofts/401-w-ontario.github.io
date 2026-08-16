@@ -55,10 +55,12 @@ EXT_BY_TYPE = {
     "image/svg+xml": ".svg",
 }
 
-# Some sites reject default SSL negotiation; be permissive, we're only reading images.
+# TLS is verified. The original script disabled verification globally
+# ("some sites reject default SSL negotiation"), but images fetched here get
+# committed and served from birkenlofts.com, so accepting any certificate is
+# the wrong trade. A site with a broken chain now simply fails and is listed
+# as needing a manual photo, like any other fetch failure.
 CTX = ssl.create_default_context()
-CTX.check_hostname = False
-CTX.verify_mode = ssl.CERT_NONE
 
 
 def fetch(url, max_bytes=15_000_000):
