@@ -60,12 +60,22 @@ export default function GuideFilters({ categories, total }: GuideFiltersProps) {
     }
 
     const match = `.guide-card${selector}`;
-    const visible = document.querySelectorAll(match).length;
-    el.textContent =
-      `.guide-card:not(${selector}){display:none}` +
-      `.guide-section:not(:has(${match})){display:none}` +
-      (visible === 0 ? '.guide-empty{display:block}' : '');
-    setCount(visible);
+    try {
+      // querySelectorAll throws a synchronous SyntaxError on a malformed
+      // selector (unlike assigning to el.textContent, which just drops the
+      // bad rule). cssValue() escaping should make that unreachable from
+      // user input, but this guard keeps a future change to that escaping
+      // from turning into a crash instead of "no filtering applied."
+      const visible = document.querySelectorAll(match).length;
+      el.textContent =
+        `.guide-card:not(${selector}){display:none}` +
+        `.guide-section:not(:has(${match})){display:none}` +
+        (visible === 0 ? '.guide-empty{display:block}' : '');
+      setCount(visible);
+    } catch {
+      el.textContent = '';
+      setCount(total);
+    }
   }, [selector, total]);
 
   const clear = () => {
