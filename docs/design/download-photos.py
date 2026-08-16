@@ -43,6 +43,12 @@ TIMEOUT = 25
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
 
+# Wikimedia's User-Agent policy (https://foundation.wikimedia.org/wiki/Policy:User-Agent_policy)
+# 429s any request to upload.wikimedia.org that looks like a generic/spoofed browser UA;
+# it wants a descriptive UA identifying the client. Business sites, by contrast, often *do*
+# gate on a browser-like UA, so only wikimedia.org hosts get the descriptive one.
+WIKIMEDIA_UA = "BirkenLoftsSiteBuild/1.0 (https://birkenlofts.com; drew@monroeresidential.com)"
+
 EXT_BY_TYPE = {
     "image/jpeg": ".jpg", "image/jpg": ".jpg", "image/png": ".png",
     "image/webp": ".webp", "image/gif": ".gif", "image/avif": ".avif",
@@ -56,8 +62,10 @@ CTX.verify_mode = ssl.CERT_NONE
 
 
 def fetch(url, max_bytes=15_000_000):
+    host = urllib.parse.urlparse(url).hostname or ""
+    ua = WIKIMEDIA_UA if host.endswith("wikimedia.org") else UA
     req = urllib.request.Request(url, headers={
-        "User-Agent": UA,
+        "User-Agent": ua,
         "Accept": "image/avif,image/webp,image/*,text/html;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
     })
