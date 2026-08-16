@@ -62,8 +62,12 @@ CTX.verify_mode = ssl.CERT_NONE
 
 
 def fetch(url, max_bytes=15_000_000):
-    host = urllib.parse.urlparse(url).hostname or ""
-    ua = WIKIMEDIA_UA if host.endswith("wikimedia.org") else UA
+    host = (urllib.parse.urlparse(url).hostname or "").lower()
+    # Match the domain on a label boundary. A bare endswith() would also send
+    # the descriptive UA — which carries a real contact address — to a
+    # lookalike host such as notwikimedia.org.
+    is_wikimedia = host == "wikimedia.org" or host.endswith(".wikimedia.org")
+    ua = WIKIMEDIA_UA if is_wikimedia else UA
     req = urllib.request.Request(url, headers={
         "User-Agent": ua,
         "Accept": "image/avif,image/webp,image/*,text/html;q=0.9,*/*;q=0.8",
